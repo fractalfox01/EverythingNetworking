@@ -1,2 +1,2 @@
 # EverythingNetworking
-A basic GUI Networking Program
+A basic GUI Networking Program written in Python
