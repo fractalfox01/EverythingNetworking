@@ -1,3 +1,4 @@
+
 try:
     import tkinter as tk
 except (ImportError) as e:
@@ -166,19 +167,19 @@ class myProg(tk.Tk):
     def Mask_button_click(self):
         order = ["start IP", "end IP", "hosts"]
         #tracker = [self.entry_startIP.set("not valid"), self.entry_endIP.set("not valid")]
-        if self.start_IP.get() != "" and self.start_IP.get() != "Enter Address Here":
-            if self.end_IP.get() != "" and self.end_IP.get() != "Enter Address Here":
-                self.entry_mask.set("mask goes here")
-                self.entry_hosts.set("")
-            elif self.entry_hosts.get() != "" and self.entry_hosts.get() != "or # here":
-                self.entry_mask.set("mask goes here")
-                self.entry_endIP.set("")
-            else:
-                self.entry_endIP.set("Enter Address Here")
-                self.entry_hosts.set("or # here")
-                self.entry_mask.set("")
-        else:
-            self.entry_startIP.set("Enter Address Here")
+        # if self.start_IP.get() != "" and self.start_IP.get() != "Enter Address Here":
+        #     if self.end_IP.get() != "" and self.end_IP.get() != "Enter Address Here":
+        #         self.entry_mask.set("mask goes here")
+        #         self.entry_hosts.set("")
+        #     elif self.entry_hosts.get() != "" and self.entry_hosts.get() != "or # here":
+        #         self.entry_mask.set("mask goes here")
+        #         self.entry_endIP.set("")
+        #     else:
+        #         self.entry_endIP.set("Enter Address Here")
+        #         self.entry_hosts.set("or # here")
+        #         self.entry_mask.set("")
+        # else:
+        #     self.entry_startIP.set("Enter Address Here")
         result = []
         result = SubnetCalculation.subnet_calculation.verify_IP(self.entry_startIP.get(), self.entry_endIP.get(), self.entry_hosts.get())
         for indx in range(0, 3):
