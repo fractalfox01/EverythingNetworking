@@ -166,34 +166,23 @@ class myProg(tk.Tk):
 
     def Mask_button_click(self):
         order = ["start IP", "end IP", "hosts"]
-        #tracker = [self.entry_startIP.set("not valid"), self.entry_endIP.set("not valid")]
-        # if self.start_IP.get() != "" and self.start_IP.get() != "Enter Address Here":
-        #     if self.end_IP.get() != "" and self.end_IP.get() != "Enter Address Here":
-        #         self.entry_mask.set("mask goes here")
-        #         self.entry_hosts.set("")
-        #     elif self.entry_hosts.get() != "" and self.entry_hosts.get() != "or # here":
-        #         self.entry_mask.set("mask goes here")
-        #         self.entry_endIP.set("")
-        #     else:
-        #         self.entry_endIP.set("Enter Address Here")
-        #         self.entry_hosts.set("or # here")
-        #         self.entry_mask.set("")
-        # else:
-        #     self.entry_startIP.set("Enter Address Here")
         result = []
         result = SubnetCalculation.subnet_calculation.verify_IP(self.entry_startIP.get(), self.entry_endIP.get(), self.entry_hosts.get())
+        print(result)
         for indx in range(0, 3):
             try:
-                if result[indx] == 'not valid':
-                    if indx == 0:
-                        self.entry_startIP.set("invalid ip")
-                        order[indx] = "1"
-                    if indx == 1:
-                        self.entry_endIP.set("invalid ip")
-                        order[indx] = "1"
-                    if indx == 2:
-                        self.entry_hosts.set("invalid host")
-                        order[indx] = "1"
+                if result[indx] != 'valid' and indx == 0:
+                    self.entry_startIP.set(self.entry_startIP.get() +" invalid IP")
+                    order[indx] = "1"
+                    break
+                if result[indx] != 'valid' and indx == 1:
+                    self.entry_endIP.set(self.entry_endIP.get() + " invalid ip")
+                    order[indx] = "1"
+                    break
+                if result[indx] != 'valid' and indx == 2:
+                    self.entry_hosts.set(self.entry_hosts.get() + " invalid host")
+                    order[indx] = "1"
+                    break
             except TypeError as e:
                 print(e)
         if "1" not in order:
