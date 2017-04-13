@@ -1,4 +1,3 @@
-
 try:
     import tkinter as tk
 except (ImportError) as e:
@@ -10,7 +9,6 @@ except (ImportError) as e:
 import os
 import subprocess
 import SubnetCalculation
-
 #import _thread
 #import Converter
 
@@ -167,7 +165,8 @@ class myProg(tk.Tk):
     def Mask_button_click(self):
         order = ["start IP", "end IP", "hosts"]
         result = []
-        result = SubnetCalculation.subnet_calculation.verify_IP(self.entry_startIP.get(), self.entry_endIP.get(), self.entry_hosts.get())
+        r = SubnetCalculation.subnet_calculation
+        result = r.verify_IP(self.entry_startIP.get(), self.entry_endIP.get(), self.entry_hosts.get())
         print(result)
         for indx in range(0, 3):
             try:

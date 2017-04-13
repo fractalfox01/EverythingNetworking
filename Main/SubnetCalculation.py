@@ -1,5 +1,6 @@
 class subnet_calculation():
 
+    @staticmethod
     def verify_IP(start, end, hosts):
         container = [start, end]
         startIP = start
@@ -97,7 +98,11 @@ class subnet_calculation():
         else:
             answer.append("not valid11 " + str(i))
         return answer # needs to pass to Verify_Range if passing all previous tests (ex. 127.0.0.1 is not comparable against 192.168.0.1)
-def Verify_Range(start, end):
-    pass
-def calculateMask(start, end, hosts):
-    pass
+
+    @staticmethod
+    def Verify_Range(start, end):
+        pass
+
+    @staticmethod
+    def calculateMask(start, end, hosts):
+        pass
