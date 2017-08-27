@@ -13,7 +13,8 @@ class subnet_calculation():
         validNum = ["0","1","2","3","4","5","6","7","8","9"]
         isValid = [] # order stored [startIP, endIP, hosts] as either 'valid' or 'not valid'
         answer = []
-
+        
+        # Container Block:
         for IP in container:
             count = 0
             numCount = 0
@@ -25,6 +26,8 @@ class subnet_calculation():
             # following block splits IP at the dots and verifys that no octet is greater than 255
             # then counts the number of dots.
             newIP = IP.split(".")
+            
+            # newIP Container Block:
             for i in newIP:
                 try:
                     for j in i:
